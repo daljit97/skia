@@ -1007,9 +1007,7 @@ optional("gpu") {
         "src/gpu/ganesh/gl/win/GrGLMakeNativeInterface_win.cpp",
         "src/gpu/ganesh/gl/win/GrGLMakeWinInterface.cpp",
       ]
-      if (target_cpu != "arm64") {
-        libs += [ "OpenGL32.lib" ]
-      }
+      libs += [ "OpenGL32.lib" ]
     } else {
       sources += [ "src/gpu/ganesh/gl/GrGLMakeNativeInterface_none.cpp" ]
     }
@@ -2396,9 +2394,7 @@ if (skia_enable_tools) {
             "tools/ganesh/gl/win/SkWGL_win.cpp",
           ]
           libs += [ "Gdi32.lib" ]
-          if (target_cpu != "arm64") {
-            libs += [ "OpenGL32.lib" ]
-          }
+          libs += [ "OpenGL32.lib" ]
         } else if (is_wasm) {
           # TODO: replace with webgl test context
           sources +=

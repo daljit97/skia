@@ -17,19 +17,6 @@
 using skwindow::DisplayParams;
 using skwindow::internal::GLWindowContext;
 
-#if defined(_M_ARM64)
-
-namespace skwindow {
-
-std::unique_ptr<WindowContext> MakeGLForWin(HWND, std::unique_ptr<const DisplayParams>) {
-    SKIA_LOG_E("GL is not supported on Windows on ARM.");
-    return nullptr;
-}
-
-}  // namespace skwindow
-
-#else
-
 namespace {
 
 class GLWindowContext_win : public GLWindowContext {
@@ -157,5 +144,3 @@ std::unique_ptr<WindowContext> MakeGLForWin(HWND wnd, std::unique_ptr<const Disp
 }
 
 }  // namespace skwindow
-
-#endif
