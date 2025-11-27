@@ -17,15 +17,6 @@
 using skwindow::DisplayParams;
 using skwindow::internal::GLWindowContext;
 
-#if defined(_M_ARM64)
-
-namespace skwindow {
-
-std::unique_ptr<WindowContext> MakeGLForWin(HWND, const DisplayParams&) { return nullptr; }
-
-}  // namespace skwindow
-
-#else
 
 namespace {
 
@@ -150,5 +141,3 @@ std::unique_ptr<WindowContext> MakeGLForWin(HWND wnd, const DisplayParams& param
 }
 
 }  // namespace skwindow
-
-#endif

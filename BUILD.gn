@@ -1014,9 +1014,7 @@ optional("gpu") {
       sources += [ "src/gpu/ganesh/gl/iOS/GrGLMakeNativeInterface_iOS.cpp" ]
     } else if (is_win && !skia_enable_winuwp) {
       sources += [ "src/gpu/ganesh/gl/win/GrGLMakeNativeInterface_win.cpp" ]
-      if (target_cpu != "arm64") {
-        libs += [ "OpenGL32.lib" ]
-      }
+      libs += [ "OpenGL32.lib" ]
     } else {
       sources += [ "src/gpu/ganesh/gl/GrGLMakeNativeInterface_none.cpp" ]
     }
@@ -2020,9 +2018,8 @@ if (skia_enable_tools) {
       } else if (is_win) {
         sources += [ "tools/gpu/gl/win/CreatePlatformGLTestContext_win.cpp" ]
         libs += [ "Gdi32.lib" ]
-        if (target_cpu != "arm64") {
-          libs += [ "OpenGL32.lib" ]
-        }
+        libs += [ "OpenGL32.lib" ]
+        
       }
     }
 

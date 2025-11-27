@@ -15,12 +15,6 @@
 
 #include <memory>
 #include <type_traits>
-
-#if defined(_M_ARM64)
-
-sk_sp<const GrGLInterface> GrGLMakeNativeInterface() { return nullptr; }
-
-#else
 /*
  * Windows makes the GL funcs all be __stdcall instead of __cdecl :(
  * This implementation will only work if GR_GL_FUNCTION_TYPE is __stdcall.
@@ -63,7 +57,5 @@ sk_sp<const GrGLInterface> GrGLMakeNativeInterface() {
     }
     return nullptr;
 }
-
-#endif // ARM64
 
 #endif//defined(SK_BUILD_FOR_WIN)
